@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>Yulong</title>
+        <link 
+            href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+            rel = "stylesheet" 
+            integrity = "sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+            crossorigin = "anonymous">
+        <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <script 
+            src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+            integrity = "sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
+            crossorigin = "anonymous">
+        </script>
+        <script src = "WebService.js"></script>
+        <style>
+            body
+            {
+                background-color: #ef253d;
+            }
+
+            .display-6
+            {
+              display: inline;
+            }
+
+            li
+            {
+              color: white;
+              text-decoration: none;
+              list-style: none;
+              font-size: larger;
+            }
+
+            button
+            {
+              padding-left: 5%;
+              border: 0;
+              color: white;
+              background-color: rgba(0, 0, 0, 0);
+            }
+
+            #map 
+            {
+              height: 80%;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="container-fluid navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="HomePage.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Menu.html">Menu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html"
+                      >About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact</a>
+                  </li>
+                  <li class = "nav-item">
+                    <a class = "nav-link active" aria-current="page" href = "Search.html">Search</a>
+                </li>
+                <li class = "nav-item">
+                  <a class = "nav-link" id = "adminonly" style = "display: none;" href = "Edit.html">Edit</a>
+                </li>
+                </ul>
+                <ul
+                  class="container-fluid navbar-nav me-auto mb-2 mb-lg-0"
+                  style="justify-content: flex-end">
+                  <li class="nav-item">
+                    <a class="nav-link" href="Login.html">Login</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        <!-- Search -->
+        <div class = "container" style = "padding: 5%;">
+            <h1 class = "display-3 text-center text-white">S E A R C H</h1>
+            <div id = "map"></div>
+            <i class = "bi-search btn" onclick = "GetMenuKeyword(document.getElementById('Search').value)" style = "color: white; display: inline;"></i>
+            <input name = "Search" id = "Search" class = "form-control" type = "search" placeholder = "Search" aria-label = "Search" style = "display: inline; width: 90%;">
+            <div class = "container text-white text-center">
+                <button onclick = "GetAllMenu()"><h6 class = "display-6">Menu</h6></button>
+              <div class = "display-6" style = "font-size: x-large;">
+                  <button onclick = "GetByCategory('Dim Sum')">Dim sums</button>
+                  <button onclick = "GetByCategory('Noodle')">Noodles</button>
+                  <button onclick = "GetByCategory('Drink')">Drinks</button>
+                  <button onclick = "GetByCategory('Dessert')">Desserts</button>
+              </div>
+            </div>
+            <div class = "col-3 d-flex container text-white text-center" style = "padding-top: 5%;">
+                <label for = "Price" class = "display-6" style = "font-size: large;">Price<button onclick = "GetByPrice(document.getElementById('Price').value)">Search</button></label>
+                <input class = "form-control" style="display: inline;" type = "text" name = "Price" id = "Price">
+            </div>
+        </div>
+
+        <!-- Result -->
+        <div class = "container" id = "Result" style = "padding: 5%;"></div>
+    </body>
+
+    <script>
+      if(window.location.hash.substr(1) == "iamadmin") 
+      {
+        document.getElementById('adminonly').removeAttribute("style", "display: none");
+      }
+      let map;
+
+      function initMap() {
+        let map = new google.maps.Map(document.getElementById("map"), 
+        {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+      }
+    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJrcg0T67jBiKzCuMp4aAHxzmci4IUpmc&callback=initMap"
+    async
+    
+  ></script>
+</html>

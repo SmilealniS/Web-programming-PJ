@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>Yulong</title>
+        <link 
+            href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+            rel = "stylesheet" 
+            integrity = "sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+            crossorigin = "anonymous">
+        <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <script 
+            src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+            integrity = "sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
+            crossorigin = "anonymous">
+        </script>
+        <script src = "WebService.js"></script>
+        <style>
+            body
+            {
+                background-color: #ef253d;
+            }
+
+            li
+            {
+              color: white;
+              text-decoration: none;
+              list-style: none;
+              font-size: larger;
+            }
+
+            button
+            {
+              /* padding-left: 5%; */
+              border: 0;
+              color: white;
+              background-color: rgba(0, 0, 0, 0);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="container-fluid navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="HomePage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AboutUs.html"
+                        >About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a class = "nav-link" href = "Search.html">Search</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a class = "nav-link active" aria-current="page" href = "Edit.html">Edit</a>
+                    </li>
+                </ul>
+                <ul
+                  class="container-fluid navbar-nav me-auto mb-2 mb-lg-0"
+                  style="justify-content: flex-end">
+                  <li class="nav-item">
+                    <a class="nav-link" href="Login.html">Login</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <!-- Admin -->
+        <div class = "container" style = "padding: 5%;">
+            <h1 class = "display-3 text-center text-white">A D M I N I S T R A T I O N</h1>
+            <div class = "row">
+                <!-- Menu -->
+                <div class = "col-6 container text-white">
+                    <h6 class = "display-6">Menu</h6>
+                    <br>
+                    <div class = "display-6" style = "font-size: x-large;">
+                        <h6 class = "display-6">View </h6>
+                        <button onclick = "GetAllMenu()">All menu</button>
+                        <button onclick = "GetByCategory('Dim Sum')">Dim sums</button>
+                        <button onclick = "GetByCategory('Noodle')">Noodles</button>
+                        <button onclick = "GetByCategory('Drink')">Drinks</button>
+                        <button onclick = "GetByCategory('Dessert')">Desserts</button>
+                    </div>
+                    <br>
+                    <div class = "display-6" style = "font-size: x-large;">
+                        <h6 class = "display-6">Search </h6>
+                        <label for = "Search" style = "font-size: larger;">Keyword</label>
+                        <input id = "Search" name = "Search" type = "text">
+                        <button onclick = "GetMenuKeyword(document.getElementById('Search').value)">Search</button>
+                        <br>
+                        <label for = "Price" style = "font-size: larger;">Price</label>
+                        <input id = "Price" name = "Price" type = "text">
+                        <button onclick = "GetByPrice(document.getElementById('Price').value)">Search</button>
+                        <br>
+                    </div>
+                    <br>
+                    <div class = "display-6" style = "font-size: x-large;">
+                        <button onclick = "AddMenu()" class = "display-6">Insert</button>
+                        <button onclick = "UpdateMenu()" class = "display-6">Update</button>
+                        <button onclick = "DeleteMenu(document.getElementById('MenuID').value)" class = "display-6">Delete</button>
+                        <br>
+                        <label for = "MenuID" style = "font-size: larger;">ID</label>
+                        <input id = "MenuID" name = "MenuID" type = "text">
+                        <br>
+                        <label for = "Title" style = "font-size: larger;">Title</label>
+                        <input id = "Title" name = "Title" type = "text">
+                        <br>
+                        <label for = "Category" style = "font-size: larger;">Category</label>
+                        <input id = "Category" name = "Category" type = "text">
+                        <br>
+                        <label for = "MenuPrice" style = "font-size: larger;">Price</label>
+                        <input id = "MenuPrice" name = "MenuPrice" type = "text">    
+                    </div>
+                </div>
+
+                <!-- User -->
+                <div class = "col-6 container text-white">
+                    <h6 class = "display-6">User</h6>
+                    <br>
+                    <div class = "display-6" style = "font-size: x-large;">
+                        <h6 class = "display-6">View </h6>
+                        <button onclick = "GetAllUser()">All user</button>
+                        <button onclick = "GetByRole('client')">Client</button>
+                        <button onclick = "GetByRole('admin')">Admin</button>
+                    </div>
+                    <br>
+                    <div class = "display-6" style = "font-size: x-large;">
+                        <h6 class = "display-6">Search </h6>
+                        <label for = "Search2" style = "font-size: larger;">Keyword</label>
+                        <input id = "Search2" name = "Search2" type = "text">
+                        <button onclick = "GetUserKeyword(document.getElementById('Search2').value)">Search</button>
+                        <br>
+                        <label for = "userID" style = "font-size: larger;">ID</label>
+                        <input id = "userID" name = "userID" type = "text">
+                        <button onclick = "GetByID(document.getElementById('userID').value)">Search</button>
+                        <br>
+                    </div>
+                    <br>
+                    <div class = "display-6" style = "font-size: x-large;">
+                        <button onclick = "AddUser()" class = "display-6">Insert</button>
+                        <button onclick = "UpdateUser()" class = "display-6">Update</button>
+                        <button onclick = "DeleteUser(document.getElementById('userID2').value)" class = "display-6">Delete</button>
+                        <br>
+                        <label for = "userID2" style = "font-size: larger;">ID</label>
+                        <input id = "userID2" name = "userID2" type = "text">
+                        <br>
+                        <label for = "FName" style = "font-size: larger;">First name</label>
+                        <input id = "FName" name = "FName" type = "text">
+                        <br>
+                        <label for = "LName" style = "font-size: larger;">Last name</label>
+                        <input id = "LName" name = "LName" type = "text">
+                        <br>
+                        <label for = "Email" style = "font-size: larger;">Email</label>
+                        <input id = "Email" name = "Email" type = "text"> 
+                        <br>
+                        <label for = "Pass" style = "font-size: larger;">Password</label>
+                        <input id = "Pass" name = "Pass" type = "text"> 
+                        <br>
+                        <label for = "role" style = "font-size: larger;">Role</label>
+                        <select id = "role" name = "role">
+                            <option value = "client">Client</option> 
+                            <option value = "admin">Admin</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <style type="text/css">
+              .form {
+                margin: 0 auto;
+                width: 210px;
+              }
+            
+              .form label{
+                display: inline-block;
+                text-align: right;
+              }
+            
+              .form input{
+                display: inline-block;
+                text-align: left;
+              }
+            </style>
+        </div>
+
+        <!-- Result -->
+        <div class = "container" id = "Result" style = "padding: 5%;"></div>
+    </body>
+</html>

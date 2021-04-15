@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>Yulong</title>
+        <link 
+            href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+            rel = "stylesheet" 
+            integrity = "sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+            crossorigin = "anonymous">
+        <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <script 
+            src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+            integrity = "sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
+            crossorigin = "anonymous">
+        </script>
+        <script src="WebService.js"></script>
+        <script>
+            ShowMenu('Dim Sum');
+        </script>
+        <style>
+            .container-fluid, .col-2, .col-8
+            {
+                padding: 0;
+                margin: 0;
+            }
+
+            h1
+            {
+                margin: 0;
+            }
+
+            a
+            {
+                text-decoration: none;
+                color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Navigation bar -->
+        <nav class = "navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class = "container">
+                <button 
+                    class = "navbar-toggler" type = "button" 
+                    data-bs-toggle = "collapse" data-bs-target = "#navbarNav" 
+                    aria-controls = "navbarNav" 
+                    aria-expanded = "false" aria-label = "Toggle navigation">
+                    <span class = "navbar-toggler-icon"></span>
+                </button>
+
+                <div class = "collapse navbar-collapse" id = "navbarNav">
+                    <ul class = "container-fluid navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class = "nav-item">
+                            <a class = "nav-link" href = "HomePage.html">Home</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a class = "nav-link active" aria-current = "page" href = "Menu.html">Menu</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a class = "nav-link" href = "AboutUs.html">About Us</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a class = "nav-link" href = "Contact.html">Contact</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a class = "nav-link" href = "Search.html">Search</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a class = "nav-link" id = "adminonly" style = "display: none;" href = "Edit.html">Edit</a>
+                          </li>
+                    </ul>
+                    <ul class = "container-fluid navbar-nav me-auto mb-2 mb-lg-0" style = "justify-content: flex-end;">
+                        <li class = "nav-item">
+                            <a class = "nav-link" href = "Login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class = "container-fluid" style = "background-image: url(Picture/Dimsum_Wallpaper_Home.jpeg); padding: 5%;">
+            <div class = "container row" style = "background-color: white; opacity: 0.9; padding: 3%;">
+                <!-- Greeting -->
+                <div class="col-2 container-fluid">
+                    <h1 class = "display-6">Hi</h1>
+                </div>
+                <!-- Menu -->
+                <div class = "col-8 container-fluid">
+                    <h1 class = "text-center display-6">Menu</h1>
+                </div>
+                <div class = "col-2 container-fluid">
+                    <h1 class = "text-center display-6">My order</h1>
+                </div>
+            </div>
+            <div class = "container row" style = "background-color: white; opacity: 0.9;">
+                <!-- Drop down -->
+                <div class = "col-2 " style = "padding: 5%; list-style: none;">
+                        <li><button style = "border: none; background-color: rgba(0, 0, 0, 0);" onclick = "ShowMenu('Dim Sum')">Dim Sums</button></li>
+                        <li><button style = "border: none; background-color: rgba(0, 0, 0, 0);" onclick = "ShowMenu('Noodle')">Noodles</button></li>
+                        <li><button style = "border: none; background-color: rgba(0, 0, 0, 0);" onclick = "ShowMenu('Dessert')">Desserts</button></li>
+                        <li><button style = "border: none; background-color: rgba(0, 0, 0, 0);" onclick = "ShowMenu('Drink')">Drinks</button></li>
+                    </ul>
+                </div>
+                <div class = "col-8 container-fluid">
+                    <div class = "" style = "padding: 5%;">
+                        <div id = "dimsum-div">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Cart -->
+                <div class = "col-2 container-fluid">
+                    <div class = "container-fluid">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End -->
+        <div class = "container-fluid" style = "background-color: #193142; padding: 2%;" id = "End">
+            <div class = "row text-white">
+                <div class = "col-3">
+                    <img src = "Picture/Yulong.svg" width = "100px" height = "100px" style = "float: right;">
+                </div>
+                <div class = "col-2">
+                    <h6 class = "fw-bold">ADDRESS</h6>
+                    <p>500 Terry Francois Street, San Francisco, CA 94158</p><br>
+                    <p>©2021 by Yulong's Dimsum.</p>
+                    </div>
+                <div class = "col-2">
+                    <h6 class = "fw-bold">OPENING HOURS</h6>
+                    <p>
+                        Mon - Fri: 11am - 10pm<br>
+                        Sat - Sun: 11am - 12am
+                    </p>
+                </div>
+                <div class = "col-2">
+                    <h6 class = "fw-bold">CONTACT</h6>
+                    <p>
+                        123-456-7890<br>
+                        info@mysite.com
+                    </p>
+                </div>
+                <div class = "col-3" style = "text-align: left;">
+                    <h6 class = "fw-bold">FOLLOW</h6>
+                    <i class = "bi-twitter"></i>
+                    <i class = "bi-facebook"></i>
+                    <i class = "bi-instagram"></i>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            if(window.location.hash.substr(1) == "iamadmin") 
+            {
+            console.log("iamadmin");
+            document.getElementById('adminonly').removeAttribute("style", "display: none");
+            }
+        </script>
+    </body>
+</html>

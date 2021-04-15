@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width = device-width, initial-scale = 1.0"
+    />
+    <title>Yulong</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="WebService.js"></script>
+    <style>
+      .container-fluid,
+      div,
+      .card,
+      .card-img {
+        padding: 0;
+        margin: 0;
+      }
+
+      .col-3 {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+
+      input,
+      button {
+        color: #a31022;
+        width: 80%;
+      }
+
+      .card-img,
+      .card,
+      .card-header {
+        border-radius: 0;
+        border: 0;
+      }
+
+      .bi-circle-fill {
+        color: goldenrod;
+        font-size: 10px;
+      }
+
+      .parallax {
+        background: #000;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
+          url(Picture/Kid.png);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .parallax-content {
+        padding: 100px 0 150px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <!-- Navigation bar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="container-fluid navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="HomePage.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="AboutUs.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Search.html">Search</a>
+              </li>
+              <li class = "nav-item">
+                <a class = "nav-link" id = "adminonly" style = "display: none;" href = "Edit.html">Edit</a>
+              </li>
+            </ul>
+            <ul
+              class="container-fluid navbar-nav me-auto mb-2 mb-lg-0"
+              style="justify-content: flex-end"
+            >
+              <li class="nav-item">
+                <a class="nav-link" href="Login.html">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Side bar -->
+      <div style="display: flex; justify-content: flex-end">
+        <div
+          class="position-fixed"
+          style="
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 3%;
+          "
+        >
+          <ul
+            class="nav"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#Logo"
+                ><i class="bi-circle-fill"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Menu"
+                ><i class="bi-circle-fill"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Story"
+                ><i class="bi-circle-fill"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Quote"
+                ><i class="bi-circle-fill"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Reserve"
+                ><i class="bi-circle-fill"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#End"><i class="bi-circle-fill"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <!-- Logo -->
+        <div class="card text-white" id="Logo">
+          <div
+            class="card-header text-center"
+            style="background-color: #ef253d"
+          >
+            <p class="display-1 card-title" style="font-weight: bold">
+              Taste of Origin
+            </p>
+            <p class="display-6 card-subtitle" style="font-weight: bold">
+              Bangkok's Most Acclaimed Asian Restaurant
+            </p>
+          </div>
+        </div>
+        <div class="card text-white">
+          <img src="Picture/Yulong-Web.svg" class="card-img" />
+        </div>
+
+        <!-- Menu -->
+        <div
+          class="row"
+          id="Menu"
+          style="padding: 5%; background-color: #a31022"
+        >
+          <div class="col-4">
+            <div class="card text-white">
+              <img src="Picture/8.png" class="card-img" />
+              <div class="card-img-overlay">
+                <h5 class="card-title">DIMSUM</h5>
+                <p class="card-text">This is a menu caption.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card text-white">
+              <img src="Picture/8.png" class="card-img" />
+              <div class="card-img-overlay">
+                <h5 class="card-title">NOODLES</h5>
+                <p class="card-text">This is a menu caption.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card text-white">
+              <img src="Picture/8.png" class="card-img" />
+              <div class="card-img-overlay">
+                <h5 class="card-title">DUMPLINGS</h5>
+                <p class="card-text">This is a menu caption.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story -->
+        <div class="parallax" id="Story">
+          <div class="container" style="padding: 0 20% 0 40%">
+            <div class="parallax-content text-white">
+              <h1>Our Story Begins In The East</h1>
+              <br />
+              <p>
+                I'm a paragraph. Click here to add your own text and edit me.
+                It’s easy. Just click “Edit Text” or double click me to add your
+                own content and make changes to the font. Feel free to drag and
+                drop me anywhere you like on your page. I’m a great place for
+                you to tell a story and let your users know a little more about
+                you. This is a great space to write long text about your company
+                and your services. You can use this space to go into a little
+                more detail about your company.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div
+          class="card text-white"
+          id="Quote"
+          style="background-color: #a31022"
+        >
+          <div class="col-6 card-img-overlay" style="padding: 5% 10% 5% 10%">
+            <h1 class="card-title display-5">
+              "And her dumplings were so light they would float in the air and
+              you'd have to catch 'em to eat 'em."
+            </h1>
+            <p>Fannie Flagg</p>
+          </div>
+          <div class="col-6 card-img" style="text-align: right">
+            <img
+              src="Picture/XiaoLongBao.png"
+              style="width: 50%; padding: 2% 10% 2% 0"
+            />
+          </div>
+        </div>
+
+        <!-- Reserve -->
+        <div
+          class="container-fluid"
+          style="background-color: #f1bc61"
+          id="Reserve"
+        >
+          <div class="row" style="padding: 2% 0 2% 0">
+            <h1 class="display-6 text-center" style="color: #a31022">
+              Make a reservation
+            </h1>
+          </div>
+          <form class="row" style="padding: 2% 10% 2% 10%">
+            <div class="col-3">
+              <input type="date" placeholder="Date" title="Date" />
+            </div>
+            <div class="col-3">
+              <input type="time" placeholder="Time" />
+            </div>
+            <div class="col-3">
+              <select
+                class="form-select"
+                aria-placeholder="Party Size"
+                aria-label="Default select example"
+              >
+                <option selected>Party Size</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <button
+                type="submit"
+                style="color: white; background-color: #a31022"
+              >
+                Book now
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- End -->
+        <div
+          class="container-fluid"
+          style="background-color: #193142; padding: 2%"
+          id="End"
+        >
+          <div class="row text-white">
+            <div class="col-3">
+              <img
+                src="Picture/Yulong.svg"
+                width="100px"
+                height="100px"
+                style="float: right"
+              />
+            </div>
+            <div class="col-2">
+              <h6 class="fw-bold">ADDRESS</h6>
+              <p>500 Terry Francois Street, San Francisco, CA 94158</p>
+              <br />
+              <p>©2021 by Yulong's Dimsum.</p>
+            </div>
+            <div class="col-2">
+              <h6 class="fw-bold">OPENING HOURS</h6>
+              <p>
+                Mon - Fri: 11am - 10pm<br />
+                Sat - Sun: 11am - 12am
+              </p>
+            </div>
+            <div class="col-2">
+              <h6 class="fw-bold">CONTACT</h6>
+              <p>
+                123-456-7890<br />
+                info@mysite.com
+              </p>
+            </div>
+            <div class="col-3" style="text-align: left">
+              <h6 class="fw-bold">FOLLOW</h6>
+              <i class="bi-twitter"></i>
+              <i class="bi-facebook"></i>
+              <i class="bi-instagram"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script>
+    if(window.location.hash.substr(1) == "iamadmin") 
+    {
+      document.getElementById('adminonly').removeAttribute("style", "display: none");
+    }
+  </script>
+</html>
